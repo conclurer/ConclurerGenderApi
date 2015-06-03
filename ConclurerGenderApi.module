@@ -1,0 +1,37 @@
+<?php
+
+class ConclurerGenderApi extends WireData implements Module, ConfigurableModule {
+
+    public function getModuleConfigInputfields (InputfieldWrapper $wrapper) {
+
+        // private Key
+        $privateKeyInput = $this->modules->get("InputfieldText");
+        $privateKeyInput->name = 'privateKey';
+        $privateKeyInput->value = $this->privateKey;
+        $privateKeyInput->label = 'Private Server Key';
+        $privateKeyInput->description = 'Add your private server key from gender-api.com here';
+
+        $wrapper->add($privateKeyInput);
+    }
+
+    public function init() {
+        foreach (array('ConclurerGenderApiResult', 'ConclurerGenderApiRequest') as $x) {
+            require dirname(__FILE__).DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.$x.'.php';
+        }
+    }
+
+    protected function generateRequestObject() {
+        return new ConclurerGenderApiRequest($this->privateKey);
+    }
+
+    public function __call($method, $arguments = array()) {
+        $methodsAllowed = array('name', 'names', 'email', 'emailAddress', 'ipAddress', 'currentIpAddress', 'language', 'country');
+        if (!in_array($method, $methodsAllowed)) return parent::__call($method, $arguments);
+
+        return $this->generateRequestObject()->$method($arguments[0]);
+    }
+
+    public function newRequest() {
+        return $this->generateRequestObject();
+    }
+}
