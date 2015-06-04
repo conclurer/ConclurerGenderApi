@@ -61,7 +61,7 @@ $result2 = $gender->name("Philipp")->country("DE")->fetch();
  
 // Detect genders of names "Marvin", "Philipp" and "Thomas" within Germany
 $nameArray = array("Marvin", "Philipp", "Thomas");
-$result3 = $gender->names($nameArray)->fetch();
+$result3 = $gender->names($nameArray)->country("DE")->fetch();
 
 // Detect gender of name "Valentin" using the current user's IP address
 $result4 = $gender->name("Valentin")->currentIpAddress()->fetch();
