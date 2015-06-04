@@ -10,6 +10,7 @@ ConclurerGenderApi accesses gender-api.com returning the gender of a given first
 
 ConclurerGenderApi delivers a set of methods to adjust the request.
 
+
 | Method | Description |
 | -- | -- |
 | `name($s)` | Sets the name to be detected |
@@ -21,6 +22,7 @@ ConclurerGenderApi delivers a set of methods to adjust the request.
 | `language($s)` | Uses a given browser locale string to detect the gender based on the given language. |
 | `country($s)` | Uses a two digit country string (e.g. "DE" or "US") to detect the gender of the name in the context of the given country. |
 | `fetch()` | Fetches the results from gender-api.com, returning a `ConclurerGenderApiResult` object on success or a `ConclurerGenderApiErrorResult` object on failure. If multiple names have been requested, a `WireArray` is returned on success. |
+
 
 ### Accessing the Results
 
