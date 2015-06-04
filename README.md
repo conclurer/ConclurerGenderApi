@@ -10,18 +10,15 @@ ConclurerGenderApi accesses gender-api.com returning the gender of a given first
 
 ConclurerGenderApi delivers a set of methods to adjust the request.
 
-
-| Method | Description |
-| -- | -- |
-| `name($s)` | Sets the name to be detected |
-| `names(array $r)` | Sets multiple names at once to be accessed in a single call. Every element in the array will be treated as indivudal name. Maximum: 100 names per call. |
-| `email($s)` | Sets the email address to be detected for gender| 
-| `emailAddress($s)` | Alias for `email($s)` |
-| `ipAddress($s)` | Uses an given ip address to detect the gender based on the origin of the given IP address. |
-| `currentIpAddress()` | Uses the current `$_SERVER["REMOTE_ADDR"]` to detect the gender based on the origin of the current IP address. |
-| `language($s)` | Uses a given browser locale string to detect the gender based on the given language. |
-| `country($s)` | Uses a two digit country string (e.g. "DE" or "US") to detect the gender of the name in the context of the given country. |
-| `fetch()` | Fetches the results from gender-api.com, returning a `ConclurerGenderApiResult` object on success or a `ConclurerGenderApiErrorResult` object on failure. If multiple names have been requested, a `WireArray` is returned on success. |
+- `name($s)`<br>Sets the name to be detected 
+- `names(array $r)`<br>Sets multiple names at once to be accessed in a single call. Every element in the array will be treated as indivudal name. Maximum: 100 names per call. 
+- `email($s)`<br>Sets the email address to be detected for gender 
+- `emailAddress($s)`<br>Alias for `email($s)` 
+- `ipAddress($s)`<br>Uses an given ip address to detect the gender based on the origin of the given IP address. 
+- `currentIpAddress()`<br>Uses the current `$_SERVER["REMOTE_ADDR"]` to detect the gender based on the origin of the current IP address. 
+- `language($s)`<br>Uses a given browser locale string to detect the gender based on the given language. 
+- `country($s)`<br>Uses a two digit country string (e.g. "DE" or "US") to detect the gender of the name in the context of the given country. 
+- `fetch()`<br>Fetches the results from gender-api.com, returning a `ConclurerGenderApiResult` object on success or a `ConclurerGenderApiErrorResult` object on failure. If multiple names have been requested, a `WireArray` is returned on success. 
 
 
 ### Accessing the Results
