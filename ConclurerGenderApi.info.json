@@ -1,6 +1,6 @@
 {
   "title": "Gender API",
-  "version": 100,
+  "version": 101,
   "author": "Conclurer GbR",
   "summary": "Allows integrated access to gender-api.com's database",
   "href": "https://www.conclurer.com/processwire",

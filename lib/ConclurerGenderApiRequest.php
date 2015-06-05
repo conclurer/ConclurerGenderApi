@@ -1,15 +1,9 @@
 <?php
 
-class ConclurerGenderApiRequest extends Wire {
+class ConclurerGenderApiRequest extends WireData {
 
     // API private key
     private $privateKey = null;
-
-    // Values for localization
-    protected $localizationType = 'none', $localizationValue;
-
-    // Values for name / ip
-    protected $names = array(), $emailAddress = null;
 
     // HTTP Connector
     protected $http;
@@ -17,6 +11,12 @@ class ConclurerGenderApiRequest extends Wire {
     public function __construct($privateKey=null) {
         $this->http = new WireHttp();
         $this->privateKey = $privateKey;
+        $this->data = array(
+            'localizationType' => 'none',
+            'localizaionValue' => null,
+            'names' => array(),
+            'emailAddress' => null
+        );
     }
 
     public function name ($string) {
@@ -62,7 +62,7 @@ class ConclurerGenderApiRequest extends Wire {
         return $this;
     }
 
-    public function fetch() {
+    public function ___fetch() {
         $baseUri = 'https://gender-api.com/get';
         $result = $this->http->getJSON($baseUri, true, $this->buildRequestData());
 

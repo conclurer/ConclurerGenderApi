@@ -16,7 +16,7 @@ class ConclurerGenderApi extends WireData implements Module, ConfigurableModule 
 
     public function init() {
         foreach (array('ConclurerGenderApiResult', 'ConclurerGenderApiRequest') as $x) {
-            require dirname(__FILE__).DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.$x.'.php';
+            require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.$x.'.php';
         }
     }
 

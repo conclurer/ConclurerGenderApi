@@ -69,3 +69,8 @@ $result4 = $gender->name("Valentin")->currentIpAddress()->fetch();
 // Detect gender using a email address
 $result5 = $gender->email("marvin.scharle@conclurer.com")->fetch();
 ```
+
+### Version History
+
+- **1.0.1**<br>Includes a fix for an error that occurred when multiple instances of ConclurerGenderApi were initialized. ConclurerGenderApiRequest::fetch is now hookable.
+- **1.0**<br>Initial release
